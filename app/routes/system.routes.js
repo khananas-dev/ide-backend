@@ -12,8 +12,23 @@ module.exports = function (app) {
 
   // create File
   app.post("/api/createFile", [authJwt.verifyToken], controller.createFile);
-  // create folder
+  // create Folder
   app.post("/api/createFolder", [authJwt.verifyToken], controller.createFolder);
+  // delete File
+  app.put("/api/deleteFile", [authJwt.verifyToken], controller.deleteFile);
+  // delete Folder
+  app.put("/api/deleteFolder", [authJwt.verifyToken], controller.deleteFolder);
+  // rename Folder
+  app.put("/api/renameFolder", [authJwt.verifyToken], controller.renameFolder);
+  // rename File
+  app.put("/api/renameFile", [authJwt.verifyToken], controller.renameFile);
+  // get data
+  app.post("/api/getFileData", [authJwt.verifyToken], controller.getFileData);
+  // save data
+  app.put("/api/saveFileData", [authJwt.verifyToken], controller.saveFileData);
+  // terminal
+  app.put("/api/terminal", [authJwt.verifyToken], controller.terminal);
+
   // get user workspace
   // app.get(
   //   "/api/usersWorkspace/:id",

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
 require("dotenv").config();
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -10,6 +11,7 @@ var corsOptions = {
 };
 
 app.use(cors());
+app.use(bodyParser.json());
 
 // parse requests of content-type - application/json
 app.use(express.json());
