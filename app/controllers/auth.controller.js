@@ -5,7 +5,7 @@ const Role = db.role;
 const os = require("os");
 const path = require("path");
 const fs = require("fs");
-const baseFolder = path.join(os.homedir(), "Documents/ide-storage");
+const baseFolder = path.join(os.homedir(), "Desktop/Projects/ide/ide-storage");
 
 require("dotenv").config();
 
@@ -94,8 +94,8 @@ exports.signin = (req, res) => {
 
       if (!user) {
         return res.status(401).send({
-          errorMsg: "Incorrect password or Username",
-          developerMsg: "Password didn't match with the original one.",
+          errorMsg: "No user found",
+          developerMsg: "No user found with given user name",
           responseStatus: "UNAUTHORIZED",
           responseCode: 401,
         });

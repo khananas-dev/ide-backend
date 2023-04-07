@@ -10,10 +10,6 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/test/all", controller.allAccess);
-
-  app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
-
   // get user details by id
   app.get("/api/usersById", [authJwt.verifyToken], controller.userDetailById);
   // get user workspace
@@ -23,10 +19,4 @@ module.exports = function (app) {
     controller.usersWorkspace
   );
   app.get("/api/folderList/:id", [authJwt.verifyToken], controller.folderList);
-
-  app.get(
-    "/api/test/admin",
-    [authJwt.verifyToken, authJwt.isAdmin],
-    controller.adminBoard
-  );
 };
